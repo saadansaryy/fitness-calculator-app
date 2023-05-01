@@ -8,7 +8,7 @@ function Calculator() {
   const [calorieResult,setCalorieResult] = useState(0);
 
   const onSubmit = (data) => {
-    // console.log(data);
+    console.log("entered on submit");
     setUserData(data);
   };
 

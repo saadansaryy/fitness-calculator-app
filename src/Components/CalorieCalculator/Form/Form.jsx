@@ -10,15 +10,16 @@ function Form({onSubmit,setCalorieResult}) {
       } = useForm();
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col justify-start items-start space-y-5 p-2 py-6 md:p-10  bg-neutral-200 shadow-lg shadow-blue-200 font-space-grotesk">
-    <div className="space-x-3 md:space-x-4">
-      <label htmlFor="age" className='opacity-60'>Age</label>
+      
+
+    <div className="w-full space-x-3 md:space-x-4">
+      <label htmlFor="age" className='opacity-60'>Age <span className='text-lg text-red-500'>{errors.age?"*":""}</span></label>
       <input
         type="number"
         id="age"
         {...register("age",  { required: "This field is required" })}
-        className="shadow shadow-blue-400 outline-none p-2"
+        className={`shadow ${errors.age?"shadow-red-400":"shadow-blue-400"}  outline-none p-2`}
       />
-      {errors.age && <span>This field is required</span>}
     </div>
 
     <div className="flex space-x-6">
@@ -29,36 +30,35 @@ function Form({onSubmit,setCalorieResult}) {
           type="radio"
           value="male"
           id="male"
-          {...register("gender", { required: "This field is required" })}
+          {...register("gender")}
         />
         <label htmlFor="female">Female</label>
         <input
           type="radio"
           value="female"
           id="female"
-          {...register("gender", { required: "This field is required" })}
+          {...register("gender")}
         />
       </div>
-      {errors.gender && <span>This field is required</span>}
     </div>
 
     <div className="space-x-3 md:space-x-4">
-      <label htmlFor="height" className='opacity-60'>Height</label>
+      <label htmlFor="height" className='opacity-60'>Height <span className='text-lg text-red-500'>{errors.height?"*":""}</span></label>
       <input
         type="number"
         id="height"
         {...register("height",  { required: "This field is required" })}
-        className="shadow shadow-blue-400 outline-none p-2"
+        className={`shadow ${errors.height?"shadow-red-400":"shadow-blue-400"}  outline-none p-2`}
       />
     </div>
 
     <div className="space-x-3 md:space-x-4">
-      <label htmlFor="weight" className='opacity-60'>Weight</label>
+      <label htmlFor="weight" className='opacity-60'>Weight<span className='text-lg text-red-500'>{errors.weight?"*":""}</span></label>
       <input
         type="number"
         id="Weight"
         {...register("weight", { required: "This field is required" })}
-        className="shadow shadow-blue-400 outline-none p-2"
+        className={`shadow ${errors.weight?"shadow-red-400":"shadow-blue-400"}  outline-none p-2`}
       />
     </div>
 
